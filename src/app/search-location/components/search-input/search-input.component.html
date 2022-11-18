@@ -1,0 +1,18 @@
+
+<div class="panel">
+    <form id="locationInput">
+        <input 
+        type="text"
+        [(ngModel)] = "locationName"
+        name = 'first'
+        class="search"
+        placeholder="Search Location"
+        />
+        <button (click)="searchCity()" type="submit" class="submit" id = "searchBn" [ngStyle]="{'background-color': (changeSearchBtn(data) === 0) ? '#181e27': '#fa6d1b'}">
+            <i class="fa fa-search" aria-hidden="true"></i>
+        </button>
+    </form>
+    <app-popular-cities-button></app-popular-cities-button>
+    <app-display-weather-details></app-display-weather-details>
+    
+</div>
