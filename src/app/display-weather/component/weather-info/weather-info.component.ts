@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { icon } from '@fortawesome/fontawesome-svg-core';
 import { Weather } from 'src/app/models/weather-object';
 import { DataService } from 'src/app/services/data.service';
+import { icon } from '@fortawesome/fontawesome-svg-core';
 @Component({
   selector: 'app-weather-info',
   templateUrl: './weather-info.component.html',
@@ -15,8 +15,8 @@ export class WeatherInfoComponent implements OnInit {
   ngOnInit(): void {
     this.data.getWeather(this.data.location); //geting location string from data service
     this.changeBg(this.data);
+    console.log(this.data.weather, 'weather obj');
   }
-
   changeBg(data: DataService): string {
     console.log('changeBg function read');
     let code = data.weather?.current?.condition.code;

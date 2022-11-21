@@ -22,11 +22,10 @@ export class DataService implements OnInit {
   getWeather(location: string) {
     this.apiW.fetchWeatherData(location).subscribe((data: Weather) => {
       this.weather = data;
-
       this.IconS = data.current.condition.icon;
       this.location = data.location.name;
       this.CodeData = data?.current?.condition.code;
-      console.log(this.weather, 'from data service', 'Code:', this.CodeData);
+      console.log(data, 'from data service', 'Code:', this.CodeData);
     });
   }
   getIcon() {

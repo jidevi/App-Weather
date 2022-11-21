@@ -16,10 +16,10 @@ import { DataService } from './services/data.service';
   declarations: [AppComponent, WeatherInfoComponent],
   imports: [
     BrowserModule,
+    FormsModule,
+    HttpClientModule,
     SearchLocationModule,
     FontAwesomeModule,
-    HttpClientModule,
-    FormsModule,
     PopularCitiesModule,
     WeatherDetailsModule,
     CommonModule,
