@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { RouterModule, Routes } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
@@ -11,12 +12,15 @@ import { PopularCitiesModule } from './popular-cities/popular-cities.module';
 import { WeatherDetailsModule } from './weather-details/weather-details.module';
 import { CommonModule } from '@angular/common';
 import { DataService } from './services/data.service';
+import { DataResolverService } from './services/data-resolver.service';
 
+const routes: Routes = [];
 @NgModule({
   declarations: [AppComponent, WeatherInfoComponent],
   imports: [
     BrowserModule,
     FormsModule,
+    RouterModule.forRoot(routes),
     HttpClientModule,
     SearchLocationModule,
     FontAwesomeModule,
@@ -24,7 +28,7 @@ import { DataService } from './services/data.service';
     WeatherDetailsModule,
     CommonModule,
   ],
-  providers: [ApiWService, DataService],
+  providers: [ApiWService, DataService, DataResolverService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
