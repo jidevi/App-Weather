@@ -1,7 +1,7 @@
-<router-outlet>
-  <div>
-  <app-weather-info></app-weather-info>
-</div>
+<router-outlet >
+  <div class="weather-app" [ngStyle]="{'background-image': 'url('+bgPath+')'} ">
+    <app-weather-info ></app-weather-info>
+  </div>
 </router-outlet>
 
 

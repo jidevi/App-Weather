@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -14,7 +14,14 @@ import { CommonModule } from '@angular/common';
 import { DataService } from './services/data.service';
 import { DataResolverService } from './services/data-resolver.service';
 
-const routes: Routes = [];
+const routes: Routes = [
+  { path: 'weather-info', component: WeatherInfoComponent },
+  {
+    path: 'Weather',
+    component: WeatherInfoComponent,
+    resolve: { data: DataResolverService },
+  },
+];
 @NgModule({
   declarations: [AppComponent, WeatherInfoComponent],
   imports: [

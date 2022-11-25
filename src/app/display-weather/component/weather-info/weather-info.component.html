@@ -1,6 +1,6 @@
 
 
-<div class="weather-app" [ngStyle]="{'background-image': 'url({{changeBg(data)}})'} ">
+<div class="weather-app" [style.backgroundImage]=" 'url('+data.bgFunctionD()+')' ">
     <div class="container">
       <h3 class="brand">app.weather</h3>
       <div>
