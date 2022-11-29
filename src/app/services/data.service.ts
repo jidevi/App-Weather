@@ -28,11 +28,11 @@ export class DataService implements OnInit {
       this.IconS = data.current.condition.icon;
       this.location = data.location.name;
       this.CodeData = data?.current?.condition.code;
-      console.log(data, 'from data service', 'Code:', this.CodeData);
+      //console.log(data, 'from data service', 'Code:', this.CodeData);
     });
   }
   bgFunctionD() {
-    return this.changeBg(1, this.weather.current?.condition.icon);
+    return this.changeBg(this.weather.current?.condition.icon);
   }
 
   NightOrDay(Icon: string) {
@@ -43,79 +43,70 @@ export class DataService implements OnInit {
     }
   }
 
-  changeBg(Code: number, Icon: string): string {
-    console.log('changeBg function read. Code:', Code);
-
+  changeBg(Icon: string): string {
     let path = '/assets/img/bg-images/';
     path += this.NightOrDay(Icon);
 
-    //if weather is sunny
-    if (Code === 1000) {
-      path += '1000.png';
-      console.log(path, 'sunny');
-      return path;
-    } else if (this.if0(Code)) {
+    if (['113'].some((x) => Icon?.includes(x))) {
+      return (path += '1000.png');
+    } else if (
+      [
+        '176',
+        '185',
+        '263',
+        '266',
+        '281',
+        '284',
+        '293',
+        '296',
+        '299',
+        '302',
+        '305',
+        '308',
+        '311',
+        '314',
+        '353',
+        '356',
+        '359',
+      ].some((x) => Icon?.includes(x))
+    ) {
       return (path += '1240.png');
-    } else if (this.if1(Code)) {
+    } else if (
+      ['200', '386', '389', '392', '395'].some((x) => Icon?.includes(x))
+    ) {
       return (path += '1276.png');
-    } else if (this.if2(Code)) {
+    } else if (
+      [
+        '179',
+        '182',
+        '227',
+        '230',
+        '260',
+        '317',
+        '320',
+        '323',
+        '326',
+        '329',
+        '332',
+        '335',
+        '338',
+        '350',
+        '362',
+        '365',
+        '368',
+        '371',
+        '374',
+        '377',
+      ].some((x) => Icon?.includes(x))
+    ) {
       return (path += '1222.png');
-    } else if (this.if3(Code)) {
+    } else if (
+      ['116', '119', '122', '143', '248'].some((x) => Icon?.includes(x))
+    ) {
       return (path += '1006.png');
-    } else return (path += 'cloudy.png');
-    //.concat('cloudy.png')
-  }
-
-  if0(Code: number): boolean {
-    if (
-      //if weather is raining
-      Code === 1063 ||
-      1072 ||
-      1087 ||
-      (Code >= 1150 && Code <= 1201) ||
-      1240 ||
-      1243 ||
-      1246
-    ) {
-      //console.log(path, 'raining');
-      return true;
-      //.concat('1040.png')
-    } else return false;
-  }
-
-  if1(Code: number): boolean {
-    if (Code == 1087 || (Code >= 1273 && Code <= 1282)) {
-      //if weather thunder/raining
-      //console.log(path, 'thunder');
-      return true;
-      //concat('1276.png')
-    } else return false;
-  }
-
-  if2(Code: number): boolean {
-    if (
-      //if weather is snowing
-      Code == 1069 ||
-      1072 ||
-      1114 ||
-      1117 ||
-      1147 ||
-      (Code >= 1204 && Code <= 1237) ||
-      (Code >= 1249 && Code <= 1264)
-    ) {
-      return true;
-      //.concat('1222.png')
-    } else return false;
-  }
-
-  if3(Code: number): boolean {
-    if (Code === 1003 || 1006 || 1009 || 1030 || 1135) {
-      //if weather is cloudy
-      return true;
-      //.concat('1006.png');
-    } else {
-      return false;
     }
+
+    return (path += 'cloudy.png');
   }
 
   getIcon() {
