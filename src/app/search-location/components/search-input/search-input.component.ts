@@ -10,6 +10,7 @@ const search = document.querySelector('.search');
   styleUrls: ['./search-input.component.css'],
 })
 export class SearchInputComponent implements OnInit {
+  //init location name
   locationName: string = '';
 
   constructor(public data: DataService) {}
@@ -25,7 +26,8 @@ export class SearchInputComponent implements OnInit {
     search?.setAttribute('value', '');
     app?.setAttribute('style', 'opacity:0;');
   }
-
+  //changes color of button depending on the time of day
+  //logic in html
   changeSearchBtn(data: DataService) {
     if (data.IconS.includes('night')) {
       return 0;

@@ -9,6 +9,9 @@ let app = document.querySelector('.weather-app');
 @Injectable({
   providedIn: 'root',
 })
+
+//returns data on location and some basic logic for organizings into UI across different components
+//using the weather api
 export class DataService implements OnInit {
   weather: Weather = {} as Weather;
   location: string = 'Harlingen';

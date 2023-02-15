@@ -17,6 +17,7 @@ export class WeatherInfoComponent implements OnInit {
     this.data.getWeather(this.data.location); //geting location string from data service
   }
 
+  //getters for html
   getLocation(w: Weather): string {
     return w.location?.name;
   }

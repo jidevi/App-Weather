@@ -11,6 +11,8 @@ import { ApiWService } from './api-w.service';
 @Injectable({
   providedIn: 'root',
 })
+
+//was learning about data resolvers but ended up not needing it
 export class DataResolverService implements Resolve<Weather> {
   constructor(private apiW: ApiWService) {}
   resolve(

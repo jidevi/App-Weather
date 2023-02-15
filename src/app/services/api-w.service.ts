@@ -10,14 +10,8 @@ export class ApiWService {
   constructor(private httpClient: HttpClient) {}
 
   public fetchWeatherData(location: string): Observable<Weather> {
-    let dataURL: string = `http://api.weatherapi.com/v1/current.json?key=ec110e31a1ff4371a93160922222311&q=${location}`;
+    //add "&q" to the end of your api key
+    let dataURL: string = `http://api.weatherapi.com/v1/current.json?key=67955ccdd623453283f222715231502&q=${location}`;
     return this.httpClient.get<Weather>(dataURL);
   }
-
-  // private WeatherDetails = new Subject<Weather>();
-  // WeatherDets$ = this.WeatherDetails.asObservable();
-  // //send message func
-  // SendWeatherDetails(details: Weather) {
-  //   this.WeatherDetails.next(details);
-  // }
 }
