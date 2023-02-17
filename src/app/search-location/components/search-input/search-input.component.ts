@@ -12,7 +12,7 @@ const search = document.querySelector('.search');
 export class SearchInputComponent implements OnInit {
   //init location name
   locationName: string = '';
-
+  //injecting service
   constructor(public data: DataService) {}
 
   ngOnInit(): void {}
@@ -26,8 +26,9 @@ export class SearchInputComponent implements OnInit {
     search?.setAttribute('value', '');
     app?.setAttribute('style', 'opacity:0;');
   }
-  //changes color of button depending on the time of day
-  //logic in html
+  //changes color of search button depending on the time of day
+  //by returning a binary number and changing it using the built in
+  //angular [ngStyle]
   changeSearchBtn(data: DataService) {
     if (data.IconS.includes('night')) {
       return 0;

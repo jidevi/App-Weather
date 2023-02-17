@@ -10,8 +10,11 @@ let app = document.querySelector('.weather-app');
   providedIn: 'root',
 })
 
-//returns data on location and some basic logic for organizings into UI across different components
-//using the weather api
+//most of the logic is done on the data service file since I want to share the data
+//across multiple components.
+
+//this class returns data on location and has some basic logic for organizing data
+//into the UI across different components using the free weather api
 export class DataService implements OnInit {
   weather: Weather = {} as Weather;
   location: string = 'Harlingen';
@@ -25,6 +28,7 @@ export class DataService implements OnInit {
 
   ngOnInit(): void {}
 
+  //calling weather api to store the data in the local vars
   getWeather(location: string) {
     this.apiW.fetchWeatherData(location).subscribe((data: Weather) => {
       this.weather = data;
@@ -34,10 +38,13 @@ export class DataService implements OnInit {
       //console.log(data, 'from data service', 'Code:', this.CodeData);
     });
   }
+  //triggers the change background function so multiple components can use it
+  //since a lot them do the same functions in a different way
   bgFunctionD() {
     return this.changeBg(this.weather.current?.condition.icon);
   }
 
+  //picks icon depending on the time of day
   NightOrDay(Icon: string) {
     if (Icon?.includes('night')) {
       return 'night/';
@@ -50,6 +57,8 @@ export class DataService implements OnInit {
     let path = '/assets/img/bg-images/';
     path += this.NightOrDay(Icon);
 
+    //returns a concatenated string for the path of img depending on the icon in the api
+    //and changes the background accordingly
     if (['113'].some((x) => Icon?.includes(x))) {
       return (path += '1000.png');
     } else if (

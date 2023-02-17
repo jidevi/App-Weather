@@ -14,10 +14,10 @@ export class PopularCitiesButtonComponent implements OnInit {
 
   ngOnInit(): void {}
   popCityOutput(city: string) {
-    cityInput = city;
     //setting location to city that is clicked by user
     this.data.getWeather(city);
 
+    //css stuff
     app?.setAttribute('style', 'opacity:0;');
   }
 }

@@ -11,10 +11,11 @@ export class WeatherInfoComponent implements OnInit {
   locationName: string = 'Harlingen';
   icon: string = this.getIconC(this.data);
 
+  //injecting service
   constructor(public data: DataService) {}
 
   ngOnInit(): void {
-    this.data.getWeather(this.data.location); //geting location string from data service
+    this.data.getWeather(this.data.location); //init weather
   }
 
   //getters for html
@@ -33,6 +34,7 @@ export class WeatherInfoComponent implements OnInit {
   getDate(w: Weather) {
     return w.location?.localtime;
   }
+
   getIconC(icon: DataService): string {
     //console.log(icon, 'before function', icon.IconS.slice(35, 46));
 
