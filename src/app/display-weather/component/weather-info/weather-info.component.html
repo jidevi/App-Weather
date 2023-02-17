@@ -1,27 +1,24 @@
-
-
-<div class="weather-app" [ngStyle]="{'background-image': 'url({{changeBg(data)}})'} ">
+<div class="weather-app" [style.backgroundImage]=" 'url('+data.bgFunctionD()+')' ">
     <div class="container">
-      <h3 class="brand">app.weather</h3>
-      <div>
-        <div >
-            <h1 class="temp">{{getTemp(data.weather)}}&#176;</h1>
-            <div class="city-time">
-                <h1 class="name">{{getLocation(data.weather)}}</h1>
-                <small>
-                    <span class="time">{{getTime(data.weather)}}</span> - 
-                    <span class="date">
-                        {{getDate(data.weather)| date: "E MMM YY"}}
-                    </span>
-                </small>
-            </div>
-            <div class="weather">
-                <img [src]= "getIconC(data)" alt="icon" class="icon" width="50" height="50"/>
-                <span class="condition">{{getCondition(data.weather)}}</span>
+        <h3 class="brand">app.weather</h3>
+        <div>
+            <div>
+                <h1 class="temp">{{getTemp(data.weather)}}&#176;</h1>
+                <div class="city-time">
+                    <h1 class="name">{{getLocation(data.weather)}}</h1>
+                    <small>
+                        <span class="time">{{getTime(data.weather)}}</span> -
+                        <span class="date">
+                            {{getDate(data.weather)| date: "E MMM YY"}}
+                        </span>
+                    </small>
+                </div>
+                <div class="weather">
+                    <img [src]="getIconC(data)" alt="icon" class="icon" width="50" height="50" />
+                    <span class="condition">{{getCondition(data.weather)}}</span>
+                </div>
             </div>
         </div>
-      </div>
     </div>
     <app-search-input></app-search-input>
-  </div>
-
+</div>

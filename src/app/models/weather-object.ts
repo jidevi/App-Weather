@@ -1,3 +1,6 @@
+//got the json data of the api and then inputted it
+//into a formatter for json to interface
+//this is what it spit out
 export interface Weather {
   location: Location;
   current: Current;
